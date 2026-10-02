@@ -20,9 +20,17 @@ public class RulesOf6005 {
     public static boolean mayUseCodeInAssignment(boolean writtenByYourself,
             boolean availableToOthers, boolean writtenAsCourseWork,
             boolean citingYourSource, boolean implementationRequired) {
-        // TODO: implement according to the 6.005 collaboration policy
-        return false;
-    }
+            // Rule 1: your own code may always be used
+            if (writtenByYourself) {
+                return true;
+            }
+            // Rule 2: someone else's code is allowed only if it is publicly
+            // available, was NOT written as course work, is cited, and the
+            // assignment does not require implementing it yourself
+            return availableToOthers && !writtenAsCourseWork
+                    && citingYourSource && !implementationRequired;
+        }
+    
 
     /**
      * Entry point: prints results for sample inputs.
